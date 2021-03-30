@@ -1,5 +1,16 @@
-firstSymbol = input("Input the first symbol: ")
-secondSymbol = input("Input the second symbol: ")
+
+#
+#   *    *
+#  ***  ***
+#   *    *
+#
+# **      **
+#  **    **
+#    ****
+#
+
+firstSymbol = input("Input the first symbol: ") #spase or -
+secondSymbol = input("Input the second symbol: ") #star or +
 
 row_1 = firstSymbol*2 + secondSymbol + firstSymbol*4 + secondSymbol + firstSymbol*2
 row_2 = firstSymbol + secondSymbol*3 + firstSymbol*2 + secondSymbol*3 + firstSymbol
