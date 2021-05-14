@@ -1,22 +1,24 @@
 # initials
-columns = 6
-rows = 8
+columns = 10
+rows = 10
 bg = 0
 cursor = "*"
 field = [[bg for i in range(columns)] for j in range(rows)]
 
 
 def infinite_sequence(fig, piece):
-    # piece starting coordinates
+    # the piece starting coordinates
     row = 0
     i = 0
     fig[row][i] = piece
 
-    # primary block
-    last_i = len(fig[row]) - 1
     while True:
-        temp = fig[row][i]
+        yield fig
 
+        # move the piece (or cursor) from left to right and
+        # from top to bottom
+        last_i = len(fig[row]) - 1
+        temp = fig[row][i]
         # collision on the right
         if i == last_i:
             row += 1
@@ -25,12 +27,11 @@ def infinite_sequence(fig, piece):
         if row == len(fig):
             row = 0
 
-        yield fig
-
         if i < last_i:
             fig[row - 1][last_i] = fig[row - 1][last_i - 1]
         fig[row][i] = fig[row][i + 1]
         fig[row][i + 1] = temp
+
         i += 1
 
 
@@ -41,7 +42,6 @@ def str_out(gen):
         res = res + "\n"
         for col in row:
             res += f"{col}"
-
     return res
 
 
