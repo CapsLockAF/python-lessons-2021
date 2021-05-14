@@ -37,10 +37,10 @@ def infinite_sequence(fig, piece):
 #  creating string
 def str_out(gen):
     res = ""
-    for r in gen:
+    for row in gen:
         res = res + "\n"
-        for c in r:
-            res += f"{c}"
+        for col in row:
+            res += f"{col}"
 
     return res
 
